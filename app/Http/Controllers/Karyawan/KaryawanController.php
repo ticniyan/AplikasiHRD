@@ -115,5 +115,8 @@ class KaryawanController extends Controller
     public function destroy($id)
     {
         //
+        $data = Karyawan::find($id);
+        $data->delete();
+        return redirect()->route('karyawan.index');
     }
 }
