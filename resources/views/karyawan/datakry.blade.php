@@ -46,7 +46,7 @@
                                     <a href="{{route('karyawan.edit',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-pencil"></i>
                                     </a>
-                                    <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{url('delete',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-trash"></i>
                                     </a>
                                 </td>
