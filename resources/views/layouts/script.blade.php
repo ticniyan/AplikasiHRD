@@ -16,7 +16,7 @@
 <script type="text/javascript" src="{{asset('vendor/sparkline/jquery.sparkline.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendor/raphael/raphael.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendor/morris/morris.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('vendor/jvectormap/jquery-jvectormap-2.0.3.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('vendor/jvectormap/jquery-jvectormap-world-mill.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendor/jvectormap/jquery-jvectormap-world-mill.js')}}"></script>
 @yield('scripts')
 <script type="text/javascript" src="{{asset('js/app.js')}}"></script>

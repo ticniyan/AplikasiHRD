@@ -31,9 +31,6 @@
                                 <td class="text-capitalize">{{$item->keterangan}}</td>
                                 <td>
                                     <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
-                                        <i class="ti-pencil"></i>
-                                    </a>
-                                    <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-trash"></i>
                                     </a>
                                 </td>
