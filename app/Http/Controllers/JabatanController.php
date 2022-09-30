@@ -83,6 +83,10 @@ class JabatanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //menghapus data jabatan berdasarkan id yang dipilih
+        DB::table('golongan')->where('golongan_id', $id)->delete();
+
+        //alihkan halaman ke halaman jabatan
+        return redirect('/jabatan');
     }
 }
