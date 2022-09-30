@@ -38,7 +38,18 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $insert = array (
+            'nama_jabatan'   => $request->nama_golongan,
+            'keterangan_jabatan'   => $request->keterangan,
+            'nama'  => $request->nm_lengkap,
+            'golongan_id'   => $request->jabatan
+        );
+
+        // dd($insert);
+
+        DB::table('Jabatan')->insert($insert);
+
+        return redirect()->route('Jabatan.index');
     }
 
     /**
@@ -60,7 +71,14 @@ class JabatanController extends Controller
      */
     public function edit($id)
     {
-        //
+         /* Cari Data Untuk Di Edit */
+        $cari = DB::table('golongan')->where('id',$id)->get();
+        if(count($cari)){
+            $jabatan = DB::table('karyawan')->get();
+            return view('golongan.edit', ['golongan' => $jabatan, 'item' => $cari]);
+        }else{
+            return redirect()->route('golongan.index');
+        }
     }
 
     /**
@@ -72,7 +90,14 @@ class JabatanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //update data jabatan 
+        DB::table('jabatan')->where('golongan_id',$request->id)->update([
+            'jabatan' => $request->nama_golongan,
+		    'keterangan_jabatan' => $request->keterangan,
+        ]);
+
+        //alihkan halaman ke halaman jabatan
+        return redirect('/jabatan');
     }
 
     /**
