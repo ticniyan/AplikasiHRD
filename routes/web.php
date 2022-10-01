@@ -3,6 +3,7 @@
 use App\Http\Controllers\JabatanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Karyawan\KaryawanController;
+use App\Http\Controllers\AbsensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,5 @@ Route::resource('karyawan', KaryawanController::class);
 Route::get('jabatan', [JabatanController::class,'index'])->name('jabatan');
 
 Route::get('/tambahjabatan', [JabatanController::class,'create'])->name('tambahjabatan');
+
+Route::resource('absensi', AbsensiController::class);

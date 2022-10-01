@@ -12,6 +12,7 @@
         <div class="box box-block bg-white">
             <h5 class="m-b-1">Data Karyawan</h5>
             <hr>
+            <div class="overflow-x-auto">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered dataTable" id="table-1">
                     <thead>
@@ -86,11 +87,12 @@
                     </tbody>
                 </table>
             </div>
+            </div>
         </div>
     </div>
 @endsection
 
-@section('style')
+@section('scripts')
     <script type="text/javascript" src="{{asset('vendor/DataTables/js/jquery.dataTables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('vendor/DataTables/js/dataTables.bootstrap4.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('vendor/DataTables/Responsive/js/dataTables.responsive.min.js')}}"></script>

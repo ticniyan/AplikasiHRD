@@ -32,7 +32,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#" class="waves-effect waves-light">
+                <a href="{{url('/absensi')}}" class="waves-effect waves-light">
                     <span class="s-icon"><i class="ti-calendar"></i></span>
                     <span class="s-text">Absensi</span>
                 </a>
@@ -41,12 +41,6 @@
                 <a href="{{url('/jabatan')}}" class="waves-effect waves-light">
                     <span class="s-icon"><i class="ti-time"></i></span>
                     <span class="s-text">Lembur</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{url('/jabatan')}}" class="waves-effect waves-light">
-                    <span class="s-icon"><i class="ti-money"></i></span>
-                    <span class="s-text">Penggajian</span>
                 </a>
             </li>
             <li>
