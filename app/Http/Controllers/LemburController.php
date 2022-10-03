@@ -36,12 +36,12 @@ class LemburController extends Controller
     {
         //
          $insert = array (
-            'nama_kry'          => $request->nama_kry,
-            'tanggal_lembur'    => $request->tanggal_lembur,
+            'nama_kry'          => $request->nama_karawan,
+            'tanggal_lembur'    => $request->tgl,
             'nama'              => $request->nm_lengkap,
-            'mulai_lembur'      => $request->mulai_lembur,
-            'selesai_lembur'    => $request->selesai_lembur,
-            'jumlah'            => $request->jumlah,
+            'mulai_lembur'      => $request->jam_mulai,
+            'selesai_lembur'    => $request->jam_selesai,
+            'jumlah'            => $request->terhitung,
         );
 
         // dd($insert);
