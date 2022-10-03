@@ -33,4 +33,7 @@ Route::get('jabatan', [JabatanController::class,'index'])->name('jabatan');
 Route::get('/tambahjabatan', [JabatanController::class,'create'])->name('tambahjabatan');
 
 Route::resource('absensi', AbsensiController::class);
+Route::get('/tambahabs', [AbsensiController::class,'create'])->name('tambahabs');
+
 Route::resource('lembur', LemburController::class);
+Route::get('/tambahlmbr', [LemburController::class,'create'])->name('tambahlmbr');
