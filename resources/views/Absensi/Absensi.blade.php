@@ -11,7 +11,7 @@
     <div class="container-fluid">
         <div class="box box-block bg-white">
             <h5>Absensi Karyawan</h5>
-            <a href="{{url('/tambahjabatan')}}" class="btn btn-primary">Tambah +</a>
+            <a href="{{url('/tambahabs')}}" class="btn btn-primary">Tambah +</a>
             <hr>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered dataTable" id="table-1">

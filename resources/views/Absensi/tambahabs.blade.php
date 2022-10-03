@@ -31,9 +31,15 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="example-time-input" class="col-xs-2 col-form-label">Jam Kerja</label>
+                    <label for="jam_kerja" class="col-xs-2 col-form-label">Jam Kerja</label>
                     <div class="col-xs-10">
-                        <input class="form-control" type="time" name="jam_kerja" id="example-time-input" required>
+                        <input class="form-control" type="text" name="jam_kerja" id="jam_kerja" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="terlambat" class="col-xs-2 col-form-label text-capitalize">terlambat</label>
+                    <div class="col-xs-10">
+                        <input type="text" name="terlambat" id="terlambat" class="form-control" required>
                     </div>
                 </div>
                {{-- <div class="form-group row">
