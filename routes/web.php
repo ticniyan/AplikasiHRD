@@ -37,3 +37,4 @@ Route::get('/tambahabs', [AbsensiController::class,'create'])->name('tambahabs')
 
 Route::resource('lembur', LemburController::class);
 Route::get('/tambahlmbr', [LemburController::class,'create'])->name('tambahlmbr');
+Route::get('/delete/{id}', [LemburController::class,'destroy'])->name('delete');
