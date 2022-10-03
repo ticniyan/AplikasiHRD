@@ -38,7 +38,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{url('/jabatan')}}" class="waves-effect waves-light">
+                <a href="{{url('/lembur')}}" class="waves-effect waves-light">
                     <span class="s-icon"><i class="ti-time"></i></span>
                     <span class="s-text">Lembur</span>
                 </a>

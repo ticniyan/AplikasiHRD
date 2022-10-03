@@ -22,7 +22,9 @@
                             <th>Tanggal</th>
                             <th>Jam Masuk</th>
                             <th>Jam Pulang</th>
+                            <th>Jam Kerja</th>
                             <th>Terlambat</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,12 +46,13 @@
                             <td class="text-capitalize">01-10-2022</td>
                             <td class="text-capitalize">09:01</td>
                             <td class="text-capitalize">17:00</td>
+                            <td class="text-capitalize">8 Jam</td>
                             <td class="text-capitalize">1 Menit</td>
-                            {{-- <td>
+                            <td>
                                 <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
-                                    <i class="ti-pencil"></i>
+                                    <i class="ti-trash"></i>
                                 </a>
-                            </td> --}}
+                            </td> 
                         </tr> 
                     </tbody>
                 </table>
