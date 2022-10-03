@@ -3,6 +3,8 @@
 use App\Http\Controllers\JabatanController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Karyawan\KaryawanController;
+use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\LemburController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +29,8 @@ Route::get('/', function () {
 
 Route::resource('karyawan', KaryawanController::class);
 Route::get('jabatan', [JabatanController::class,'index'])->name('jabatan');
-Route::get('/delete/{id}', [KaryawanController::class,'destroy'])->name('delete');
+
 Route::get('/tambahjabatan', [JabatanController::class,'create'])->name('tambahjabatan');
+
+Route::resource('absensi', AbsensiController::class);
+Route::resource('lembur', LemburController::class);
