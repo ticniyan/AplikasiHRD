@@ -13,7 +13,8 @@ class LemburController extends Controller
      */
     public function index()
     {
-        return view('Lembur.lembur');
+        return view('Lembur.lembur', ['data'=>$data]);
+        $data = DB::table('lembur')->get();
     }
 
     /**
