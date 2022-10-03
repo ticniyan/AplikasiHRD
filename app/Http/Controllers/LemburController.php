@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class LemburController extends Controller
 {
@@ -13,8 +14,8 @@ class LemburController extends Controller
      */
     public function index()
     {
-        return view('Lembur.lembur', ['data'=>$data]);
         $data = DB::table('lembur')->get();
+        return view('Lembur.Lembur', ['data' => $data]);
     }
 
     /**
