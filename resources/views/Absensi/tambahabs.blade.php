@@ -1,0 +1,60 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container-fluid">
+        <div class="box box-block bg-white">
+            <h5 class="text-capitalize">form absensi</h5>
+            <hr>
+            <form action="">
+                <div class="form-group row">
+                    <label for="nama" class="col-xs-2 col-form-label text-capitalize">nama karyawan</label>
+                    <div class="col-xs-10">
+                        <input type="text" name="nm_karyawan" id="nama" class="form-control" placeholder="Nama ..." required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="tgl" class="col-xs-2 col-form-label text-capitalize">tanggal</label>
+                    <div class="col-xs-10">
+                        <input type="date" name="tgl" id="ttl" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-time-input" class="col-xs-2 col-form-label">Jam Masuk</label>
+                    <div class="col-xs-10">
+                        <input class="form-control" type="time" name="jam_masuk" id="example-time-input" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="example-time-input" class="col-xs-2 col-form-label">Jam Pulang</label>
+                    <div class="col-xs-10">
+                        <input class="form-control" type="time" name="jam_plg" id="example-time-input" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="jam_kerja" class="col-xs-2 col-form-label">Jam Kerja</label>
+                    <div class="col-xs-10">
+                        <input class="form-control" type="text" name="jam_kerja" id="jam_kerja" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="terlambat" class="col-xs-2 col-form-label text-capitalize">terlambat</label>
+                    <div class="col-xs-10">
+                        <input type="text" name="terlambat" id="terlambat" class="form-control" required>
+                    </div>
+                </div>
+               {{-- <div class="form-group row">
+                    <label for="jabatan" class="col-xs-2 col-form-label text-capitalize">jabatan</label>
+                    <div class="col-xs-10">
+                        <select class="custom-select" name="jabatan" id="jabatan">
+                            <option selected>Jabatan</option>
+                            @foreach ($jabatan as $item)
+                                <option value="{{$item->id}}">{{$item->nama_golongan}}</option> 
+                            @endforeach
+                        </select>
+                    </div>
+                </div>--}}
+                <button type="submit" class="btn btn-primary">Simpan</button>
+            </form>
+        </div>
+    </div>
+@endsection
