@@ -75,8 +75,4 @@
     <script type="text/javascript" src="{{asset('vendor/DataTables/Buttons/js/buttons.print.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('vendor/DataTables/Buttons/js/buttons.colVis.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/tables-datatable.js')}}"></script>
-<<<<<<< HEAD
 @endsection
-=======
-@endsection
->>>>>>> 911f53627e1311e3a3cd4fe23e5743fc6f78bc62

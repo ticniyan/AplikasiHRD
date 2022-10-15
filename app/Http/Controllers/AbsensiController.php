@@ -23,11 +23,7 @@ class AbsensiController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
         return view('Absensi.tambahabs');
-=======
-        //
->>>>>>> 911f53627e1311e3a3cd4fe23e5743fc6f78bc62
     }
 
     /**
