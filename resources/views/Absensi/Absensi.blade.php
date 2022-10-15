@@ -11,11 +11,7 @@
     <div class="container-fluid">
         <div class="box box-block bg-white">
             <h5>Absensi Karyawan</h5>
-<<<<<<< HEAD
             <a href="{{url('/tambahabs')}}" class="btn btn-primary">Tambah +</a>
-=======
-            <a href="{{url('/tambahjabatan')}}" class="btn btn-primary">Tambah +</a>
->>>>>>> 911f53627e1311e3a3cd4fe23e5743fc6f78bc62
             <hr>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered dataTable" id="table-1">
@@ -79,8 +75,5 @@
     <script type="text/javascript" src="{{asset('vendor/DataTables/Buttons/js/buttons.print.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('vendor/DataTables/Buttons/js/buttons.colVis.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/tables-datatable.js')}}"></script>
-<<<<<<< HEAD
 @endsection
-=======
-@endsection
->>>>>>> 911f53627e1311e3a3cd4fe23e5743fc6f78bc62
+
