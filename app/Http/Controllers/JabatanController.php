@@ -15,8 +15,7 @@ class JabatanController extends Controller
     public function index()
     {
         //
-        $data = Jabatan::all();
-
+        $data = DB::table('golongan')->get();
         return view('Jabatan.data',['data' => $data]);
     }
 
@@ -48,7 +47,6 @@ class JabatanController extends Controller
         // dd($insert);
 
         DB::table('Jabatan')->insert($insert);
-
         return redirect()->route('Jabatan.index');
     }
 
@@ -109,9 +107,10 @@ class JabatanController extends Controller
     public function destroy($id)
     {
         //menghapus data jabatan berdasarkan id yang dipilih
-        DB::table('golongan')->where('golongan_id', $id)->delete();
+         $data = Jabatan::find($id);
+         $data->delete();
 
         //alihkan halaman ke halaman jabatan
-        return redirect('/jabatan');
+          return redirect()->route('jabatan.index');
     }
 }
