@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class LemburController extends Controller
 {
@@ -13,7 +14,8 @@ class LemburController extends Controller
      */
     public function index()
     {
-        return view('Lembur.lembur');
+        $data = DB::table('lembur')->get();
+        return view('Lembur.Lembur', ['data' => $data]);
     }
 
     /**
@@ -35,6 +37,20 @@ class LemburController extends Controller
     public function store(Request $request)
     {
         //
+         $insert = array (
+            'nama_kry'          => $request->nama_karawan,
+            'tanggal_lembur'    => $request->tgl,
+            'nama'              => $request->nm_lengkap,
+            'mulai_lembur'      => $request->jam_mulai,
+            'selesai_lembur'    => $request->jam_selesai,
+            'jumlah'            => $request->terhitung,
+        );
+
+        // dd($insert);
+
+        DB::table('lembur')->insert($insert);
+
+        return redirect()->route('lembur.index');
     }
 
     /**
@@ -80,5 +96,8 @@ class LemburController extends Controller
     public function destroy($id)
     {
         //
+        $data = Lembur::find($id);
+        $data->delete();
+        return redirect()->route('lembur.index');
     }
 }

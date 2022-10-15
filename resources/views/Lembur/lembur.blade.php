@@ -47,7 +47,7 @@
                             <td class="text-capitalize">19:00</td>
                             <td class="text-capitalize">60 Menit</td>
                             <td>
-                                <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                <a href="{{url('delete')}}" class="btn btn-success btn-circle waves-effect waves-light">
                                     <i class="ti-trash"></i>
                                 </a>
                             </td> 
