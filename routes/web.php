@@ -28,8 +28,8 @@ Route::get('/', function () {
 });
 
 Route::resource('karyawan', KaryawanController::class);
-Route::get('jabatan', [JabatanController::class,'index'])->name('jabatan');
 
+Route::get('jabatan', [JabatanController::class,'index'])->name('jabatan');
 Route::get('/tambahjabatan', [JabatanController::class,'create'])->name('tambahjabatan');
 
 Route::resource('absensi', AbsensiController::class);
