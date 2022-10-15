@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="box box-block bg-white">
-            <h5 class="text-capitalize">form tambah data karyawan</h5>
+            <h5 class="text-capitalize">form tambah jabatan</h5>
             <hr>
             <form action="">
                 <div class="form-group row">
