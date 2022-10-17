@@ -72,7 +72,9 @@ class KaryawanController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Karyawan::find($id);
+        //dd($data);
+        return view('karyawan.edit',compact('data'));
     }
 
     /**
@@ -85,13 +87,17 @@ class KaryawanController extends Controller
     {
         //
         /* Cari Data Untuk Di Edit */
-        $cari = DB::table('karyawan')->where('id',$id)->get();
-        if(count($cari)){
-            $jabatan = DB::table('golongan')->get();
-            return view('karyawan.edit', ['jabatan' => $jabatan, 'item' => $cari]);
-        }else{
-            return redirect()->route('karyawan.index');
-        }
+        // $cari = DB::table('karyawan')->where('id',$id)->get();
+        // if(count($cari)){
+        //      $jabatan = DB::table('golongan')->get();
+        //      return view('karyawan.edit', ['jabatan' => $jabatan, 'item' => $cari]);
+        //  }else{
+        //      return redirect()->route('karyawan.index');}
+
+        $data = Karyawan::find($id);
+        return $data;
+        //return view('karyawan.edit');
+
     }
 
     /**
@@ -101,9 +107,28 @@ class KaryawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    
+    
+     public function update(Request $request, $id)
     {
-        //
+        
+        $update = [
+            'nip'   => $request->nip,
+            'nik'   => $request->nik,
+            'nama'  => $request->nm_lengkap,
+            'jenis_kelamin' => $request->radio,
+            'tempat_lahir'  => $request->tmp_lahir,
+            'tanggal_lahir' => $request->tgl_lahir,
+            'telpon'        => $request->tlpn,
+            'email'         => $request->email,
+            'status_nikah'  => $request->status,
+            'alamat'        => $request->alamat,
+            'golongan_id'   => $request->jabatan
+        ];
+        User::where('id', $id)->update($update);
+        $msg = "User Updated successful! ";
+        return redirect('karyawan.index')->with('msg', $msg); 
+    
     }
 
     /**
