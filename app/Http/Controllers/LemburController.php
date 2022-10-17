@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use DB;
+use App\Models\Lembur;
 
 class LemburController extends Controller
 {
@@ -16,6 +16,8 @@ class LemburController extends Controller
     {
         $data = DB::table('lembur')->get();
         return view('Lembur.Lembur', ['data' => $data]);
+        
+        
     }
 
     /**
@@ -23,9 +25,19 @@ class LemburController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    
+    public function tambah(Request $request)
+    { 
         return view('Lembur.tambahlmbr');
+
+    }
+    
+    
+     public function create(Request $request)
+    { 
+        $Lembur = Lembur::all();
+        return view('Lembur.buatlembur', ['lembur' => $Lembur]);
+
     }
 
     /**
@@ -37,20 +49,23 @@ class LemburController extends Controller
     public function store(Request $request)
     {
         //
-         $insert = array (
-            'nama_kry'          => $request->nama_karawan,
-            'tanggal_lembur'    => $request->tgl,
-            'nama'              => $request->nm_lengkap,
-            'mulai_lembur'      => $request->jam_mulai,
-            'selesai_lembur'    => $request->jam_selesai,
-            'jumlah'            => $request->terhitung,
-        );
+        // $insert = array (
+        //     'nama_kry'          => $request->nama_karawan,
+        //     'tanggal_lembur'    => $request->tgl,
+        //     'nama'              => $request->nm_lengkap,
+        //     'mulai_lembur'      => $request->jam_mulai,
+        //     'selesai_lembur'    => $request->jam_selesai,
+        //     'jumlah'            => $request->terhitung,
+        // );
 
         // dd($insert);
 
-        DB::table('lembur')->insert($insert);
+        // DB::table('lembur')->insert($insert);
 
-        return redirect()->route('lembur.index');
+        // return redirect()->route('lembur.index');
+
+        Lembur::create($request->all());
+        return redirect()->route('lembur');
     }
 
     /**
