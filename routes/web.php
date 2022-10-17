@@ -28,6 +28,10 @@ Route::get('/', function () {
 });
 
 Route::resource('karyawan', KaryawanController::class);
+Route::get('tambahkry', [KaryawanController::class,'create'])->name('tambahkry');
+Route::get('/update/{id}', [KaryawanController::class,'update'])->name('update');
+Route::get('/editkry/{id}', [KaryawanController::class,'edit'])->name('editkry');
+Route::get('/delete/{id}', [KaryawanController::class,'destroy'])->name('delete');
 
 Route::get('jabatan', [JabatanController::class,'index'])->name('jabatan');
 Route::get('/tambahjabatan', [JabatanController::class,'create'])->name('tambahjabatan');
