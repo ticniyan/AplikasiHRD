@@ -40,5 +40,8 @@ Route::resource('absensi', AbsensiController::class);
 Route::get('/tambahabs', [AbsensiController::class,'create'])->name('tambahabs');
 
 Route::resource('lembur', LemburController::class);
-Route::get('/tambahlmbr', [LemburController::class,'create'])->name('tambahlmbr');
-Route::get('/delete/{id}', [LemburController::class,'destroy'])->name('delete');
+Route::get('lembur', [LemburController::class,'index'])->name('lembur');
+Route::get('/tambahlmbr', [LemburController::class,'tambah'])->name('tambahlmbr');
+Route::post('/buatlembur', [LemburController::class,'create'])->name('buatlembur');
+Route::PUT('/store', [LemburController::class,'store'])->name('store');
+Route::DELETE('/delete/{id}', [LemburController::class,'destroy'])->name('delete');
