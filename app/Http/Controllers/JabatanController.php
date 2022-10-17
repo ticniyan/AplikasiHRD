@@ -26,7 +26,8 @@ class JabatanController extends Controller
      */
     public function create()
     {
-        return view('Jabatan.tambahjabatan');
+         $jabatan = Jabatan::all();
+        return view('karyawan.tambah', ['jabatan' => $jabatan]);
     }
 
     /**
