@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Jabatan;
 use Illuminate\Http\Request;
+use DB;
 
 class JabatanController extends Controller
 {
@@ -26,7 +27,8 @@ class JabatanController extends Controller
      */
     public function create()
     {
-        return view('Jabatan.tambahjabatan');
+         $jabatan = Jabatan::all();
+        return view('karyawan.tambah', ['jabatan' => $jabatan]);
     }
 
     /**
