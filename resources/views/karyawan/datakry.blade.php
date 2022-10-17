@@ -44,10 +44,10 @@
                                 <td>{{$item->email}}</td>
                                 <td>{{$item->golongan_id}}</td>
                                 <td>
-                                    <a href="{{route('karyawan.edit',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{route('editkry',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-pencil"></i>
                                     </a>
-                                    <a href="{{url('delete',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{route('delete',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-trash"></i>
                                     </a>
                                 </td>
