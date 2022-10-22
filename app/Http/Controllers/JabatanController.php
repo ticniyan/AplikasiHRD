@@ -59,7 +59,9 @@ class JabatanController extends Controller
      */
     public function show($id)
     {
-        //
+         $data = Jabatan::find($id);
+        //dd($data);
+        return view('Jabatan.edit',compact('data'));
     }
 
     /**
