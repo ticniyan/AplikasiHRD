@@ -6,7 +6,7 @@
             <h5 class="text-capitalize">Edit data karyawan</h5>
             <hr>
             @foreach ($item as $it)
-                <form action="{{route('karyawan.store')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('karyawan.update',$data->id)}}"  method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <label for="nip" class="col-xs-2 col-form-label text-capitalize">NIP</label>
