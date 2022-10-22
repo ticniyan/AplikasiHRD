@@ -49,23 +49,23 @@ class LemburController extends Controller
     public function store(Request $request)
     {
         //
-        // $insert = array (
-        //     'nama_kry'          => $request->nama_karawan,
-        //     'tanggal_lembur'    => $request->tgl,
-        //     'nama'              => $request->nm_lengkap,
-        //     'mulai_lembur'      => $request->jam_mulai,
-        //     'selesai_lembur'    => $request->jam_selesai,
-        //     'jumlah'            => $request->terhitung,
-        // );
+        $insert = array (
+             'nama_kry'          => $request->nama_karawan,
+             'tanggal_lembur'    => $request->tgl,
+             'nama'              => $request->nm_lengkap,
+             'mulai_lembur'      => $request->jam_mulai,
+             'selesai_lembur'    => $request->jam_selesai,
+             'jumlah'            => $request->terhitung,
+         );
 
         // dd($insert);
 
-        // DB::table('lembur')->insert($insert);
+         DB::table('lembur')->insert($insert);
 
-        // return redirect()->route('lembur.index');
+         return redirect()->route('lembur.index');
 
-        Lembur::create($request->all());
-        return redirect()->route('lembur');
+        // Lembur::create($request->all());
+        // return redirect()->route('lembur');
     }
 
     /**
@@ -111,8 +111,8 @@ class LemburController extends Controller
     public function destroy($id)
     {
         //
-        $data = Lembur::find($id);
-        $data->delete();
-        return redirect()->route('lembur.index');
+        // $data = Lembur::find($id);
+        // $data->delete();
+        // return redirect()->route('lembur.index');
     }
 }
