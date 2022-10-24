@@ -37,6 +37,8 @@ Route::get('/delete/{id}', [KaryawanController::class,'destroy'])->name('delete'
 Route::get('jabatan', [JabatanController::class,'index'])->name('jabatan');
 Route::post('insertdata', [JabatanController::class,'insertdata'])->name('insertdata');
 Route::get('/tambahjabatan', [JabatanController::class,'tambahjabatan'])->name('tambahjabatan');
+Route::get('/update/{id}', [JabatanController::class,'update'])->name('update');
+Route::get('/edit/{id}', [JabatanController::class,'edit'])->name('edit');
 Route::DELETE('/delete/{id}', [JabatanController::class,'delete'])->name('delete');
 
 Route::resource('absensi', AbsensiController::class);
