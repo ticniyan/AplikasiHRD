@@ -11,7 +11,7 @@
                     <div class="form-group row">
                         <label for="nip" class="col-xs-2 col-form-label text-capitalize">NIP</label>
                         <div class="col-xs-10">
-                            <input type="number" name="nip" id="nip" class="form-control" value="{{$it->nip}}" readonly
+                            <input type="number" name="nip" id="nip" class="form-control" value="{{$it->nip}}" readonly>
                         </div>
                     </div>
                     <div class="form-group row">
