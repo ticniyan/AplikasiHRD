@@ -27,14 +27,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($Lembur as $item)
+                        @foreach ($data as $item)
                             <tr>
-                                <td>{{$item->id}}</td>
+                               {{-- }}$item->id}}</td>   --}}
                                 <td class="text-capitalize">{{$item->nama_kry}}</td>
                                 <td class="text-capitalize">{{$item->tanggal_lembur}}</td>
-                                <td class="text-capitalize">{{$item->jumlah}}</td>
                                 <td class="text-capitalize">{{$item->mulai_lembur}}</td>
                                 <td class="text-capitalize">{{$item->selesai_lembur}}</td>
+                                <td class="text-capitalize">{{$item->jumlah}}</td>
                                 <td>
                                     <a href="{{url('delete')}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-trash"></i>
@@ -50,7 +50,7 @@
                             <td class="text-capitalize">19:00</td>
                             <td class="text-capitalize">60 Menit</td>
                             <td>
-                                <a href="{{url('delete')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
                                     <i class="ti-trash"></i>
                                 </a>
                             </td> 
