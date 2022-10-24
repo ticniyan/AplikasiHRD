@@ -7,72 +7,42 @@ use Illuminate\Http\Request;
 
 class JabatanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
-        $data = DB::table('golongan')->get();
+        $data = Jabatan::all();
         return view('Jabatan.data',['data' => $data]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function tambahjabatan()
     {
-         $jabatan = Jabatan::all();
-        return view('karyawan.tambah', ['jabatan' => $jabatan]);
+        return view('Jabatan.tambahjabatan');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-         $insert = array (
+        $insert = array (
             'nama_jabatan'   => $request->nama_golongan,
-            'keterangan_jabatan'   => $request->keterangan,
-            'nama'  => $request->nm_lengkap,
-            'golongan_id'   => $request->jabatan
+            'keterangan'   => $request->keterangan
         );
 
-        // dd($insert);
+        dd($insert);
 
-        DB::table('Jabatan')->insert($insert);
-        return redirect()->route('Jabatan.index');
+        DB::table('golongan')->insert($insert);
+
+        return redirect()->route('golongan.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-         $data = Jabatan::find($id);
+        $data = Jabatan::find($id);
         //dd($data);
         return view('Jabatan.edit',compact('data'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-         /* Cari Data Untuk Di Edit */
+        /* Cari Data Untuk Di Edit */
         $cari = DB::table('golongan')->where('id',$id)->get();
         if(count($cari)){
             $jabatan = DB::table('karyawan')->get();
@@ -82,13 +52,6 @@ class JabatanController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //update data jabatan 
@@ -101,19 +64,13 @@ class JabatanController extends Controller
         return redirect('/jabatan');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function delete($id)
     {
         //menghapus data jabatan berdasarkan id yang dipilih
-         $data = Jabatan::find($id);
-         $data->delete();
+        $data = Jabatan::find($id);
+        $data->delete();
 
         //alihkan halaman ke halaman jabatan
-          return redirect()->route('jabatan.index');
+        return redirect()->route('golongan.index');
     }
 }
