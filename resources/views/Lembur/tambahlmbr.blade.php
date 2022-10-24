@@ -36,17 +36,17 @@
                         <input type="text" name="terhitung" id="terhitung" class="form-control" required>
                     </div>
                 </div>
-               {{-- <div class="form-group row">
-                    <label for="jabatan" class="col-xs-2 col-form-label text-capitalize">jabatan</label>
+                <div class="form-group row">
+                    <label for="lembur" class="col-xs-2 col-form-label text-capitalize">nama</label>
                     <div class="col-xs-10">
-                        <select class="custom-select" name="jabatan" id="jabatan">
-                            <option selected>Jabatan</option>
-                            @foreach ($jabatan as $item)
-                                <option value="{{$item->id}}">{{$item->nama_golongan}}</option> 
+                        <select class="custom-select" name="nama" id="nama">
+                            <option selected>Lembur</option>
+                            @foreach ($lembur as $item)
+                                <option value="{{$item->id}}">{{$item->nama_kry}}</option> 
                             @endforeach
                         </select>
                     </div>
-                </div>--}}
+                </div>
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>
