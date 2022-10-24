@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Karyawan\KaryawanController;
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\LemburController;
+use App\Http\Controllers\CutiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +52,6 @@ Route::get('/tambahlmbr', [LemburController::class,'tambah'])->name('tambahlmbr'
 Route::post('/buatlembur', [LemburController::class,'create'])->name('buatlembur');
 Route::PUT('/store', [LemburController::class,'store'])->name('store');
 Route::DELETE('/delete/{id}', [LemburController::class,'destroy'])->name('delete');
+
+Route::resource('cuti', CutiController::class);
+Route::get('/tambahcuti', [CutiController::class,'create'])->name('tambahcuti');
