@@ -34,10 +34,16 @@ Route::get('/edit/{id}', [KaryawanController::class,'edit'])->name('editkry');
 Route::get('/delete/{id}', [KaryawanController::class,'destroy'])->name('delete');
 
 Route::get('jabatan', [JabatanController::class,'index'])->name('jabatan');
-Route::get('/tambahjabatan', [JabatanController::class,'create'])->name('tambahjabatan');
+Route::post('insertdata', [JabatanController::class,'insertdata'])->name('insertdata');
+Route::get('/tambahjabatan', [JabatanController::class,'tambahjabatan'])->name('tambahjabatan');
+Route::DELETE('/delete/{id}', [JabatanController::class,'delete'])->name('delete');
 
 Route::resource('absensi', AbsensiController::class);
 Route::get('/tambahabs', [AbsensiController::class,'create'])->name('tambahabs');
+Route::DELETE('delete/{id}', [AbsensiController::class, 'delete'])->name('delete');
+Route::get('/update/{id}', [AbsensiController::class,'update'])->name('update');
+Route::get('/edit/{id}', [AbsensiController::class,'edit'])->name('edit');
+Route::PUT('/store', [AbsensiController::class,'store'])->name('store');
 
 Route::resource('lembur', LemburController::class);
 Route::get('lembur', [LemburController::class,'index'])->name('lembur');
