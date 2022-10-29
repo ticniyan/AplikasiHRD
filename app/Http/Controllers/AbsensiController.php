@@ -23,12 +23,12 @@ class AbsensiController extends Controller
     {
         $insert = array (
             'karyawan_id'   => $request->karyawan_id,
+            'nama'          => $request->nama,
             'tgl_absen'     => $request->tgl_absen,
             'jam_masuk'     => $request->jam_masuk,
             'jam_pulang'    => $request->jam_pulang,
-            'terlambat'     => $request->terlambat,
             'jam_kerja'     => $request->jam_kerja,
-            'nama'          => $request->nama
+            'terlambat'     => $request->terlambat
         );
 
         //dd($insert);
@@ -58,12 +58,12 @@ class AbsensiController extends Controller
     {
         $update = [
             'karyawan_id'   => $request->karyawan_id,
+            'nama'          => $request->nama,
             'tgl_absen'     => $request->tgl_absen,
             'jam_masuk'     => $request->jam_masuk,
             'jam_pulang'    => $request->jam_pulang,
-            'terlambat'     => $request->terlambat,
             'jam_kerja'     => $request->jam_kerja,
-            'nama'          => $request->nama
+            'terlambat'     => $request->terlambat
         ];
         User::where('id', $id)->update($update);
         $msg = "User Updated successful! ";
