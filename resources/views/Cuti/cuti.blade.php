@@ -16,16 +16,14 @@
             <div class="table-responsive">
                 <table class="table table-striped table-bordered dataTable" id="table-1">
                     <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>ID Karyawan</th>
-                            <th>Nama</th>
-                            <th>Jumlah Permohonan</th>
-                            <th>Tanggal Mulai</th>
-                            <th>Tanggal Selesai</th>
-                            <th>Status</th>
-                            <th>Keterangan</th>
-                        </tr>
+                        <th width="50px">#</th>
+                            <th width="50px">ID Karyawan</th>
+                            <th width="200px">Nama</th>
+                            <th width="50px">Jumlah Permohonan</th>
+                            <th width="100px">Tanggal Mulai</th>
+                            <th width="100px">Tanggal Selesai</th>
+                            <th width="100px">Status</th>
+                            <th width="50px">Keterangan</th>
                     </thead>
                     <tbody>
                        {{-- @foreach ($data as $item)
