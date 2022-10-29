@@ -1,125 +1,107 @@
 @extends('layouts.app')
 
+@section('css')
+    <link rel="stylesheet" href="{{asset('vendor/DataTables/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/DataTables/Responsive/css/responsive.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/DataTables/Buttons/css/buttons.dataTables.min.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/DataTables/Buttons/css/buttons.bootstrap4.min.css')}}">
+@endsection
+
 @section('content')
     <div class="container-fluid">
         <div class="box box-block bg-white">
-            <h5 class="text-capitalize">Edit data karyawan</h5>
+            <h5 class="m-b-1">Data Karyawan</h5>
             <hr>
-            @foreach ($item as $it)
-                <form action="{{route('karyawan.update',$data->id)}}"  method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="form-group row">
-                        <label for="nip" class="col-xs-2 col-form-label text-capitalize">NIP</label>
-                        <div class="col-xs-10">
-                            <input type="number" name="nip" id="nip" class="form-control" value="{{$it->nip}}" readonly>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="nik" class="col-xs-2 col-form-label text-capitalize">NIK</label>
-                        <div class="col-xs-10">
-                            <input type="number" name="nik" id="nik" class="form-control" value="{{$it->nik}}" placeholder="NIK ..." readonly />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="nama" class="col-xs-2 col-form-label text-capitalize">nama lengkap</label>
-                        <div class="col-xs-10">
-                            <input type="text" name="nm_lengkap" id="nama" class="form-control" value="{{$it->nama}}" placeholder="Nama Lengkap ..." readonly>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="jenis_kelamin" class="col-xs-2 col-form-label text-capitalize">jenis kelamin</label>
-                        <div class="col-xs-10">
-                            <label class="custom-control custom-radio">
-                                <input id="radio1" name="radio" value="pria" type="radio" class="custom-control-input">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Laki-Laki</span>
-                            </label>
-                            <label class="custom-control custom-radio">
-                                <input id="radio1" name="radio" value="wanita" type="radio" class="custom-control-input">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Perempuan</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="tmptlahir" class="col-xs-2 col-form-label text-capitalize">tempat lahir</label>
-                        <div class="col-xs-10">
-                            <input type="text" name="tmp_lahir" id="tmptlahir" class="form-control" placeholder="Tempat Lahir ..." required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="ttl" class="col-xs-2 col-form-label text-capitalize">tanggal lahir</label>
-                        <div class="col-xs-10">
-                            <input type="date" name="tgl_lahir" id="ttl" class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="notlp" class="col-xs-2 col-form-label text-capitalize">No Telepon</label>
-                        <div class="col-xs-10">
-                            <input type="tel" name="tlpn" id="notlpn" class="form-control" placeholder="08XXXXXXXXXX ..." required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="email" class="col-xs-2 col-form-label text-capitalize">E-mail</label>
-                        <div class="col-xs-10">
-                            <input type="email" name="email" id="email" class="form-control" placeholder="kantor@gmail.com ..." required>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="status" class="col-xs-2 col-form-label text-capitalize">status nikah</label>
-                        <div class="col-xs-10">
-                            <select class="custom-select" name="status" id="status">
-                                <option selected>Status</option>
-                                <option value="1">Belum Nikah</option>
-                                <option value="2">Nikah</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="alamat" class="col-xs-2 col-form-label text-capitalize">alamat</label>
-                        <div class="col-xs-10">
-                            <textarea class="form-control" name="alamat" id="exampleTextarea" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="jabatan" class="col-xs-2 col-form-label text-capitalize">jabatan</label>
-                        <div class="col-xs-10">
-                            <select class="custom-select" name="jabatan" id="jabatan">
-                                <option selected>Jabatan</option>
-                                @foreach ($jabatan as $item)
-                                    <option value="{{$item->id}}">{{$item->nama_golongan}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    {{-- <div class="form-group row">
-                        <label for="foto" class="col-xs-2 col-form-label text-capitalize">Foto</label>
-                        <div class="col-xs-10">
-                            <div class="fileinput fileinput-new" data-provides="fileinput">
-                                <div class="fileinput-new thumbnail">
-                                    <img src="https://www.gravatar.com/avatar/ec5c95a0bbaf89f6b9b82b9bb289b13f?d=mm&amp;s=250"/>
-                                    <input type="hidden" name="hiddenImage" value="default.jpg">
-                                </div>
-                                <div class="fileinput-preview fileinput-exists thumbnail">
-                                </div>
-                                <div>
-                                <span class="btn default btn-file">
-                                    <span class="fileinput-new">
-                                        Select image </span>
-                                    <span class="fileinput-exists">
-                                        Change </span>
-                                    <input type="file" name="profileImage">
-                                </span>
-                                    <a href="#" class="btn btn-sm red fileinput-exists" data-dismiss="fileinput">
-                                        Remove </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </form>
-            @endforeach
-
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered dataTable" id="table-1">
+                    <thead>
+                        <tr>
+                            <th width="50px">#</th>
+                            <th width="50px">NIP</th>
+                            <th width="100px">Nama</th>
+                            <th width="50px">Jenis Kelamin</th>
+                            <th width="90px">Tgl.Lahir</th>
+                            <th width="150px">Alamat</th>
+                            <th width="100px">No.Tlpn</th>
+                            <th width="100px">Email</th>
+                            <th width="50px">Jabatan</th>
+                            <th width="50px">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $item)
+                            <tr>
+                                <td>{{$item->id}}</td>
+                                <td class="text-capitalize">{{$item->nip}}</td>
+                                <td class="text-capitalize">{{$item->nama}}</td>
+                                <td class="text-capitalize">{{$item->jenis_kelamin}}</td>
+                                <td>
+                                    {{$item->tanggal_lahir}}
+                                </td>
+                                <td class="text-capitalize">{{$item->alamat}}</td>
+                                <td>{{$item->telpon}}</td>
+                                <td>{{$item->email}}</td>
+                                <td>{{$item->golongan_id}}</td>
+                                <td>
+                                    <a href="{{route('karyawan.edit',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                        <i class="ti-pencil"></i>
+                                    </a>
+                                    <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                        <i class="ti-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endforeach
+                        {{-- <tr>
+                            <td>1</td>
+                            <td class="text-capitalize">123456</td>
+                            <td class="text-capitalize">Dika Saputra</td>
+                            <td class="text-capitalize">HRD</td>
+                            <td class="text-capitalize">08950112345</td>
+                            <td>
+                                <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <i class="ti-pencil"></i>
+                                </a>
+                                <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                        <i class="ti-trash"></i>
+                                    </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>087654</td>
+                            <td>Aziza Nur A</td>
+                            <td>Sekertaris</td>
+                            <td>012387633456</td>
+                            <td>
+                                <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <i class="ti-pencil"></i>
+                                </a>
+                                <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                        <i class="ti-trash"></i>
+                                    </a>
+                            </td>
+                        </tr>
+                        --}}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="{{asset('vendor/DataTables/js/jquery.dataTables.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendor/DataTables/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendor/DataTables/Responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendor/DataTables/Responsive/js/responsive.bootstrap4.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendor/DataTables/Buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendor/DataTables/Buttons/js/buttons.bootstrap4.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendor/DataTables/JSZip/jszip.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendor/DataTables/pdfmake/build/pdfmake.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendor/DataTables/pdfmake/build/vfs_fonts.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendor/DataTables/Buttons/js/buttons.html5.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendor/DataTables/Buttons/js/buttons.print.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('vendor/DataTables/Buttons/js/buttons.colVis.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/tables-datatable.js')}}"></script>
 @endsection
