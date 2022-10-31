@@ -45,7 +45,6 @@ class KaryawanController extends Controller
 
         $insert = array (
             'nip'   => $request->nip,
-            'nik'   => $request->nik,
             'nama'  => $request->nm_lengkap,
             'jenis_kelamin' => $request->radio,
             'tempat_lahir'  => $request->tmp_lahir,
@@ -54,7 +53,7 @@ class KaryawanController extends Controller
             'email'         => $request->email,
             'status_nikah'  => $request->status,
             'alamat'        => $request->alamat,
-            'golongan_id'   => $request->jabatan
+            //'id'   => $request->jabatan
         );
 
         // dd($insert);
@@ -113,7 +112,6 @@ class KaryawanController extends Controller
         $data = Karyawan::where('id',$id)
               ->update([
                 'nip'   => $request->nip,
-                'nik'   => $request->nik,
                 'nama'  => $request->nm_lengkap,
                 'jenis_kelamin' => $request->radio,
                 'tempat_lahir'  => $request->tmp_lahir,
@@ -122,7 +120,7 @@ class KaryawanController extends Controller
                 'email'         => $request->email,
                 'status_nikah'  => $request->status,
                 'alamat'        => $request->alamat,
-                'golongan_id'   => $request->jabatan
+            //    'id'   => $request->jabatan
               ]);
               return redirect(karyawan.index)->with('toast_success','Data berhasil diupdate');
 
