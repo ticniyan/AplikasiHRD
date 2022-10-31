@@ -17,19 +17,19 @@
                 <table class="table table-striped table-bordered dataTable" id="table-1">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Nama</th>
-                            <th>Tanggal</th>
-                            <th>Jam Mulai</th>
-                            <th>Jam Selesai</th>
-                            <th>Terhitung</th>
-                            <th>Aksi</th>
+                            <th width="50px">#</th>
+                            <th width="200px">Nama</th>
+                            <th width="100px">Tanggal</th>
+                            <th width="100px">Jam Mulai</th>
+                            <th width="100px">Jam Selesai</th>
+                            <th width="100px">Terhitung</th>
+                            <th width="50px">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $item)
                             <tr>
-                               {{-- }}$item->id}}</td>   --}}
+                                <td></td>
                                 <td class="text-capitalize">{{$item->nama_kry}}</td>
                                 <td class="text-capitalize">{{$item->tanggal_lembur}}</td>
                                 <td class="text-capitalize">{{$item->mulai_lembur}}</td>
