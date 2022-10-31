@@ -13,7 +13,7 @@
                         <select class="custom-select" name="nm_karyawan" id="nama">
                             <option selected>Karyawan</option>
                             @foreach ($data as $item)
-                                <option value="{{$item->nip}}">{{$item->nama}}</option> 
+                                <option value="{{$item->nama}}">{{$item->nama}}</option> 
                             @endforeach 
                         </select>
                     </div>
