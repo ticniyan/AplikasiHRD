@@ -15,7 +15,9 @@ class LemburController extends Controller
     public function index()
     {
         $data = DB::table('lembur')->get();
-        return view('Lembur.Lembur', ['data' => $data]);
+        //dd($data);
+        return view('Lembur.lembur', ['data' => $data]);
+        //return $data;
         
         
     }
@@ -28,7 +30,9 @@ class LemburController extends Controller
     
     public function tambah(Request $request)
     { 
-        return view('Lembur.tambahlmbr');
+
+        $data = DB::table('karyawan')->get();
+        return view('Lembur.tambahlmbr', ['data'=> $data]);
 
     }
     
@@ -50,12 +54,12 @@ class LemburController extends Controller
     {
         //
         $insert = array (
-             'nama_kry'          => $request->nama_karawan,
-             'tanggal_lembur'    => $request->tgl,
-             'nama'              => $request->nm_lengkap,
-             'mulai_lembur'      => $request->jam_mulai,
-             'selesai_lembur'    => $request->jam_selesai,
-             'jumlah'            => $request->terhitung,
+            'id_lembur'       => $request->nm_karyawan,
+            'nama_kry'          => $request->nm_karyawan,
+             'tanggal_lembur'   => $request->tgl,
+             'mulai_lembur'     => $request->jam_mulai,
+             'selesai_lembur'   => $request->jam_selesai,
+             'jumlah'           => $request->terhitung,
          );
 
         // dd($insert);
