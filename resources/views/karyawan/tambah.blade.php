@@ -14,12 +14,6 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="nik" class="col-xs-2 col-form-label text-capitalize">NIK</label>
-                    <div class="col-xs-10">
-                        <input type="number" name="nik" id="nik" class="form-control" placeholder="NIK ..." required>
-                    </div>
-                </div>
-                <div class="form-group row">
                     <label for="nama" class="col-xs-2 col-form-label text-capitalize">nama lengkap</label>
                     <div class="col-xs-10">
                         <input type="text" name="nm_lengkap" id="nama" class="form-control" placeholder="Nama Lengkap ..." required>
