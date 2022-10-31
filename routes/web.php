@@ -40,14 +40,15 @@ Route::post('insertdata', [JabatanController::class,'insertdata'])->name('insert
 Route::get('/tambahjabatan', [JabatanController::class,'tambahjabatan'])->name('tambahjabatan');
 Route::get('/update/{id}', [JabatanController::class,'update'])->name('update');
 Route::get('/edit/{id}', [JabatanController::class,'edit'])->name('edit');
-Route::DELETE('/delete/{id}', [JabatanController::class,'delete'])->name('delete');
+Route::post('/store', [JabatanController::class,'store'])->name('store');
+Route::get('/deletejabatan/{id}', [JabatanController::class,'destroy'])->name('deletejabatan');
 
 Route::resource('absensi', AbsensiController::class);
 Route::get('/tambahabs', [AbsensiController::class,'create'])->name('tambahabs');
-Route::DELETE('delete/{id}', [AbsensiController::class, 'delete'])->name('delete');
+Route::get('deleteabsen/{id}', [AbsensiController::class, 'destroy'])->name('deleteabsen');
 Route::get('/update/{id}', [AbsensiController::class,'update'])->name('update');
 Route::get('/edit/{id}', [AbsensiController::class,'edit'])->name('edit');
-Route::PUT('/store', [AbsensiController::class,'store'])->name('store');
+Route::post('/absensistore', [AbsensiController::class,'absensistore'])->name('absensistore');
 
 //Route::resource('lembur', LemburController::class);
 Route::get('lembur', [LemburController::class,'index'])->name('lembur');
