@@ -55,5 +55,8 @@ Route::get('/tambahlmbr', [LemburController::class,'tambah'])->name('tambahlmbr'
 Route::post('/buatlembur', [LemburController::class,'create'])->name('buatlembur');
 Route::post('/store', [LemburController::class,'store'])->name('store');
 Route::DELETE('/delete/{id}', [LemburController::class,'destroy'])->name('delete');
+
 Route::resource('cuti', CutiController::class);
-Route::get('/tambahcuti', [CutiController::class,'create'])->name('tambahcuti');
+Route::get('cuti', [CutiController::class,'index'])->name('cuti');
+Route::get('tambahcuti', [CutiController::class,'create'])->name('tambahcuti');
+Route::get('/deletecuti/{id}', [CutiController::class,'destroy'])->name('deletecuti');
