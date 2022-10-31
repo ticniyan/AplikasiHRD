@@ -19,23 +19,22 @@ class AbsensiController extends Controller
         return view('Absensi.tambahabs', ['Absensi' => $absensi]);
     }
 
-    public function store(Request $request)
+    public function absensistore(Request $request)
     {
         $insert = array (
-            'karyawan_id'   => $request->karyawan_id,
-            'nama'          => $request->nama,
-            'tgl_absen'     => $request->tgl_absen,
-            'jam_masuk'     => $request->jam_masuk,
-            'jam_pulang'    => $request->jam_pulang,
-            'jam_kerja'     => $request->jam_kerja,
-            'terlambat'     => $request->terlambat
+           // 'id'             => $request->id,
+           'nama'          => $request->nm_karyawan,
+           'tgl_absen'     => $request->tgl,
+           'jam_masuk'     => $request->jam_masuk,
+           'jam_pulang'    => $request->jam_plg,
+           'terlambat'     => $request->terlambat,
+          'jam_kerja'     => $request->jam_kerja
         );
 
         //dd($insert);
 
         DB::table('Absensi')->insert($insert);
-
-        return redirect()->route('Absensi.index');
+        return redirect()->route('absensi.index');
     }
 
     public function show($id)
@@ -57,13 +56,12 @@ class AbsensiController extends Controller
     public function update(Request $request, $id)
     {
         $update = [
-            'karyawan_id'   => $request->karyawan_id,
-            'nama'          => $request->nama,
-            'tgl_absen'     => $request->tgl_absen,
+            'nama'          => $request->nm_karyawan,
+            'tgl_absen'     => $request->tgl,
             'jam_masuk'     => $request->jam_masuk,
-            'jam_pulang'    => $request->jam_pulang,
-            'jam_kerja'     => $request->jam_kerja,
-            'terlambat'     => $request->terlambat
+            'jam_pulang'    => $request->jam_plg,
+            'terlambat'     => $request->terlambat,
+           'jam_kerja'     => $request->jam_kerja
         ];
         User::where('id', $id)->update($update);
         $msg = "User Updated successful! ";
@@ -72,11 +70,15 @@ class AbsensiController extends Controller
 
     public function destroy($id)
     {
-        //menghapus data jabatan berdasarkan id yang dipilih
-        $data = absensi::find($id);
-        $data-> delete();
-        
-        //alihkan halaman ke halaman jabatan
-        return redirect()->route('Absensi.index');
+        // dd($id);
+        $data = Absensi::find($id);
+        if($data){
+            $message = true;
+            $data->delete();
+            
+        }else{
+            $message = false;
+        }
+        return redirect()->route('absensi.index');
     }
 }
