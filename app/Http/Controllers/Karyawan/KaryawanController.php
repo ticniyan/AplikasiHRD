@@ -93,6 +93,7 @@ class KaryawanController extends Controller
         //   }else{
         //       return redirect()->route('karyawan.index');}
 
+        //dd($id);
         $data = Karyawan::where('id',$id)->firstorfail();
         //return $data;
         return view('karyawan.edit',compact('data'));
@@ -137,8 +138,15 @@ class KaryawanController extends Controller
     public function destroy($id)
     {
         //
+        // dd($id);
         $data = Karyawan::find($id);
-        $data->delete();
+        if($data){
+            $message = true;
+            $data->delete();
+            
+        }else{
+            $message = false;
+        }
         return redirect()->route('karyawan.index');
     }
 }
