@@ -16,29 +16,34 @@
             <div class="table-responsive">
                 <table class="table table-striped table-bordered dataTable" id="table-1">
                     <thead>
-                        <th width="50px">#</th>
-                            <th width="50px">ID Karyawan</th>
+                        <tr>
+                            <th width="50px">#</th>
                             <th width="200px">Nama</th>
-                            <th width="50px">Jumlah Permohonan</th>
                             <th width="100px">Tanggal Mulai</th>
                             <th width="100px">Tanggal Selesai</th>
+                            <th width="50px">Jumlah Permohonan</th>
                             <th width="100px">Status</th>
                             <th width="50px">Keterangan</th>
+                        </tr>
                     </thead>
                     <tbody>
-                       {{-- @foreach ($data as $item)
+                        @foreach ($data as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td class="text-capitalize">{{$item->nama_golongan}}</td>
+                                <td class="text-capitalize">{{$item->nama_kry}}</td>
+                                <td class="text-capitalize">{{$item->tanggal_mulai}}</td>
+                                <td class="text-capitalize">{{$item->tgl_selesai}}</td>
+                                <td class="text-capitalize">{{$item->jumlah}}</td>
+                                <td class="text-capitalize">{{$item->status}}</td>
                                 <td class="text-capitalize">{{$item->keterangan}}</td>
                                 <td>
-                                    <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{url('deletecuti',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-trash"></i>
                                     </a>
                                 </td>
                             </tr>
-                        @endforeach --}}
-                         <tr>
+                        @endforeach 
+                         {{--<tr>
                             <td>1</td>
                             <td>1</td>
                             <td class="text-capitalize">Agus</td>
@@ -51,7 +56,7 @@
                                     <i class="ti-trash"></i>
                                 </a>
                             </td> 
-                        </tr> 
+                        </tr> --}}
                     </tbody>
                 </table>
             </div>
