@@ -48,12 +48,11 @@ Route::get('/update/{id}', [AbsensiController::class,'update'])->name('update');
 Route::get('/edit/{id}', [AbsensiController::class,'edit'])->name('edit');
 Route::PUT('/store', [AbsensiController::class,'store'])->name('store');
 
-Route::resource('lembur', LemburController::class);
+//Route::resource('lembur', LemburController::class);
 Route::get('lembur', [LemburController::class,'index'])->name('lembur');
 Route::get('/tambahlmbr', [LemburController::class,'tambah'])->name('tambahlmbr');
 Route::post('/buatlembur', [LemburController::class,'create'])->name('buatlembur');
-Route::PUT('/store', [LemburController::class,'store'])->name('store');
+Route::post('/store', [LemburController::class,'store'])->name('store');
 Route::DELETE('/delete/{id}', [LemburController::class,'destroy'])->name('delete');
-
 Route::resource('cuti', CutiController::class);
 Route::get('/tambahcuti', [CutiController::class,'create'])->name('tambahcuti');
