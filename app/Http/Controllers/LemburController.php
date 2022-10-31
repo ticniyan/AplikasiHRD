@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Lembur;
+use App\Models\Karyawan;
 
 class LemburController extends Controller
 {
@@ -54,19 +55,19 @@ class LemburController extends Controller
     {
         //
         $insert = array (
-            'id_lembur'       => $request->nm_karyawan,
-            'nama_kry'          => $request->nm_karyawan,
-             'tanggal_lembur'   => $request->tgl,
-             'mulai_lembur'     => $request->jam_mulai,
-             'selesai_lembur'   => $request->jam_selesai,
-             'jumlah'           => $request->terhitung,
+            'id'               => $request->id,
+            'nama_kry'             => $request->nm_karyawan,
+            'tanggal_lembur'   => $request->tgl,
+            'mulai_lembur'     => $request->jam_mulai,
+            'selesai_lembur'   => $request->jam_selesai,
+            'jumlah'           => $request->terhitung,
          );
 
         // dd($insert);
 
          DB::table('lembur')->insert($insert);
 
-         return redirect()->route('lembur.index');
+         return redirect()->route('lembur');
 
         // Lembur::create($request->all());
         // return redirect()->route('lembur');
