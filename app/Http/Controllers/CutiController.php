@@ -55,7 +55,7 @@ class CutiController extends Controller
             'tanggal_mulai' => $request->tgl_mulai,
             'tgl_selesai'   => $request->tgl_selesai,
             'jumlah'        => $request->jmlh_cuti,
-            'status'        => $status,
+            'status'        => $request->status,
             'keterangan'    => $request->ket,
         );
 
