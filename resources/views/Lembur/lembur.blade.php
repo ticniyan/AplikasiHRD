@@ -29,7 +29,7 @@
                     <tbody>
                         @foreach ($data as $item)
                             <tr>
-                                <td></td>
+                                <td>{{$item->id}}</td>
                                 <td class="text-capitalize">{{$item->nama_kry}}</td>
                                 <td class="text-capitalize">{{$item->tanggal_lembur}}</td>
                                 <td class="text-capitalize">{{$item->mulai_lembur}}</td>
