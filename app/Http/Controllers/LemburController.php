@@ -115,9 +115,14 @@ class LemburController extends Controller
      */
     public function destroy($id)
     {
-        //
-        // $data = Lembur::find($id);
-        // $data->delete();
-        // return redirect()->route('lembur.index');
+         $data = Lembur::find($id);
+        if($data){
+            $message = true;
+            $data->delete();
+            
+        }else{
+            $message = false;
+        }
+        return redirect()->route('lembur.index');
     }
 }
