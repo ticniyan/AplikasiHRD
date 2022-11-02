@@ -43,7 +43,7 @@
                                 <td>{{$item->email}}</td>
                                 <td>{{$item->id}}</td>
                                 <td>
-                                    <a href="{{route('karyawan.edit',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{url('editkry',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-pencil"></i>
                                     </a>
                                     <a href="{{url('deletekaryawan',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
