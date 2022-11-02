@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Karyawan;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -94,9 +93,11 @@ class KaryawanController extends Controller
         //       return redirect()->route('karyawan.index');}
 
         //dd($id);
-        $data = Karyawan::where('id',$id)->firstorfail();
+        $data = Karyawan::where('id',$id)->get();
+        $jabatan = Jabatan::all();
+        // dd($data);
         //return $data;
-        return view('karyawan.edit',compact('data'));
+        return view('karyawan.edit',['data' => $data, 'jabatan' => $jabatan]);
     }
 
     /**
@@ -110,6 +111,7 @@ class KaryawanController extends Controller
     
      public function update(Request $request, $id)
     {
+        //dd($request->all());
         $data = Karyawan::where('id',$id)
               ->update([
                 'nip'   => $request->nip,
@@ -123,7 +125,8 @@ class KaryawanController extends Controller
                 'alamat'        => $request->alamat,
             //    'id'   => $request->jabatan
               ]);
-              return redirect(karyawan.index)->with('toast_success','Data berhasil diupdate');
+              //return redirect(karyawan.index)->with('toast_success','Data berhasil diupdate');
+              return redirect()->route('karyawan.index');
 
         
     
