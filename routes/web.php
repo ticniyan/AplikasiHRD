@@ -29,7 +29,7 @@ Route::get('/', function () {
 });
 
 Route::resource('karyawan', KaryawanController::class);
-Route::get('jabatan', [JabatanController::class,'index'])->name('jabatan');
+Route::get('karyawan.index', [KaryawanController::class,'index'])->name('karyawanindex');
 Route::get('tambahkry', [KaryawanController::class,'create'])->name('tambahkry');
 Route::post('/updatekry/{id}', [KaryawanController::class,'update'])->name('updatekry');
 Route::get('/editkry/{id}', [KaryawanController::class,'edit'])->name('editkry');
