@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cuti;
 use Illuminate\Http\Request;
+use App\Models\Karyawan;
+use DB;
 
 class CutiController extends Controller
 {
@@ -51,11 +53,12 @@ class CutiController extends Controller
     {
         //
         $insert = array (
-            'nama_kry'          => $request->nm_lengkap,
+           // 'id'            => $request->id,
+            'nama'          => $request->nm_karyawan,
             'tanggal_mulai' => $request->tgl_mulai,
             'tgl_selesai'   => $request->tgl_selesai,
             'jumlah'        => $request->jmlh_cuti,
-            'status'        => $request->status,
+            'status'        => '1',
             'keterangan'    => $request->ket,
         );
 
@@ -63,7 +66,7 @@ class CutiController extends Controller
 
         DB::table('cuti')->insert($insert);
 
-        return redirect()->route('cuti.index');
+        return redirect()->route('cuti');
     }
 
     /**
