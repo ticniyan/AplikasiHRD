@@ -24,13 +24,14 @@
                             <th width="50px">Jumlah Permohonan</th>
                             <th width="100px">Status</th>
                             <th width="50px">Keterangan</th>
+                            <th width="50px">aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td class="text-capitalize">{{$item->nama_kry}}</td>
+                                <td class="text-capitalize">{{$item->nama}}</td>
                                 <td class="text-capitalize">{{$item->tanggal_mulai}}</td>
                                 <td class="text-capitalize">{{$item->tgl_selesai}}</td>
                                 <td class="text-capitalize">{{$item->jumlah}}</td>
