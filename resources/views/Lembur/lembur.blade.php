@@ -36,7 +36,7 @@
                                 <td class="text-capitalize">{{$item->selesai_lembur}}</td>
                                 <td class="text-capitalize">{{$item->jumlah}}</td>
                                 <td>
-                                    <a href="{{url('delete')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{url('delete',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-trash"></i>
                                     </a>
                                 </td>
