@@ -51,11 +51,11 @@ Route::get('/edit/{id}', [AbsensiController::class,'edit'])->name('edit');
 Route::post('/absensistore', [AbsensiController::class,'absensistore'])->name('absensistore');
 
 //Route::resource('lembur', LemburController::class);
-Route::get('lembur', [LemburController::class,'index'])->name('lembur');
+Route::get('lembur.index', [LemburController::class,'index'])->name('lembur.index');
 Route::get('/tambahlmbr', [LemburController::class,'tambah'])->name('tambahlmbr');
 Route::post('/buatlembur', [LemburController::class,'create'])->name('buatlembur');
-Route::post('/store', [LemburController::class,'store'])->name('store');
-Route::DELETE('/delete/{id}', [LemburController::class,'destroy'])->name('delete');
+Route::post('/storelembur', [LemburController::class,'storelembur'])->name('storelembur');
+Route::get('/delete/{id}', [LemburController::class,'destroy'])->name('delete');
 
 Route::resource('cuti', CutiController::class);
 Route::get('cuti', [CutiController::class,'index'])->name('cuti');
