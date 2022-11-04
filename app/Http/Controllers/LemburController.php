@@ -51,7 +51,7 @@ class LemburController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storelembur(Request $request)
     {
         //
         $insert = array (
@@ -67,7 +67,7 @@ class LemburController extends Controller
 
          DB::table('lembur')->insert($insert);
 
-         return redirect()->route('lembur');
+         return redirect()->route('lembur.index');
 
         // Lembur::create($request->all());
         // return redirect()->route('lembur');
@@ -115,7 +115,7 @@ class LemburController extends Controller
      */
     public function destroy($id)
     {
-         $data = Lembur::find($id);
+        $data = Lembur::find($id);
         if($data){
             $message = true;
             $data->delete();
