@@ -5,7 +5,7 @@
         <div class="box box-block bg-white">
             <h5 class="text-capitalize">form lembur</h5>
             <hr>
-            <form action="{{route('store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('storelembur')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group row">
                     <label for="nama" class="col-xs-2 col-form-label text-capitalize">nama karyawan</label>
