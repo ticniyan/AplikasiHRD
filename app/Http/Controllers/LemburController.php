@@ -17,7 +17,7 @@ class LemburController extends Controller
     {
         $data = DB::table('lembur')->get();
         //dd($data);
-        return view('Lembur.lembur', ['data' => $data]);
+        return view('lembur.lembur', ['data' => $data]);
         //return $data;
         
         
@@ -56,7 +56,7 @@ class LemburController extends Controller
         //
         $insert = array (
             'id'               => $request->id,
-            'nama_kry'             => $request->nm_karyawan,
+            'nama_kry'         => $request->nm_karyawan,
             'tanggal_lembur'   => $request->tgl,
             'mulai_lembur'     => $request->jam_mulai,
             'selesai_lembur'   => $request->jam_selesai,
@@ -82,6 +82,8 @@ class LemburController extends Controller
     public function show($id)
     {
         //
+        $data = Lembur::find($id);
+        return view('lembur.edit',compact('data'));
     }
 
     /**
@@ -115,6 +117,10 @@ class LemburController extends Controller
      */
     public function destroy($id)
     {
+        //
+        // $data = Lembur::find($id);
+        // $data->delete();
+        // return redirect()->route('lembur.index');
         $data = Lembur::find($id);
         if($data){
             $message = true;
