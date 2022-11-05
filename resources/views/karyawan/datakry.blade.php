@@ -41,7 +41,7 @@
                                 <td class="text-capitalize">{{$item->alamat}}</td>
                                 <td>{{$item->telpon}}</td>
                                 <td>{{$item->email}}</td>
-                                <td>{{$item->id}}</td>
+                                <td>{{$item->jabatan}}</td>
                                 <td>
                                     <a href="{{url('editkry',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-pencil"></i>
