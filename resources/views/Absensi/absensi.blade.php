@@ -17,7 +17,7 @@
                 <table class="table table-striped table-bordered dataTable" id="table-1">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>ID</th>
                             <th>Nama</th>
                             <th>Tanggal</th>
                             <th>Jam Masuk</th>
@@ -28,19 +28,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                       {{-- @foreach ($data as $item)
+                       @foreach ($data as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td class="text-capitalize">{{$item->nama_golongan}}</td>
-                                <td class="text-capitalize">{{$item->keterangan}}</td>
+                                <td class="text-capitalize">{{$item->nama}}</td>
+                                <td class="text-capitalize">{{$item->tgl_absen}}</td>
+                                <td class="text-capitalize">{{$item->jam_masuk}}</td>
+                                <td class="text-capitalize">{{$item->jam_pulang}}</td>
+                                <td class="text-capitalize">{{$item->jam_kerja}}</td>
+                                <td class="text-capitalize">{{$item->terlambat}}</td>
                                 <td>
-                                    <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{url('/deleteabsen',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-trash"></i>
                                     </a>
                                 </td>
                             </tr>
-                        @endforeach --}}
-                         <tr>
+                        @endforeach 
+                         {{-- <tr>
                             <td>1</td>
                             <td class="text-capitalize">Niya</td>
                             <td class="text-capitalize">01-10-2022</td>
@@ -53,7 +57,7 @@
                                     <i class="ti-trash"></i>
                                 </a>
                             </td> 
-                        </tr> 
+                        </tr> --}}
                     </tbody>
                 </table>
             </div>

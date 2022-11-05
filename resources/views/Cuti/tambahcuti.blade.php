@@ -3,20 +3,19 @@
 @section('content')
     <div class="container-fluid">
         <div class="box box-block bg-white">
-            <h5 class="text-capitalize">form tambah data karyawan</h5>
+            <h5 class="text-capitalize">form cuti karyawan</h5>
             <hr>
-            <form action="{{route('karyawan.store')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('cutistore')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group row">
-                    <label for="nama" class="col-xs-2 col-form-label text-capitalize">nama lengkap</label>
+                    <label for="nama" class="col-xs-2 col-form-label text-capitalize">nama karyawan</label>
                     <div class="col-xs-10">
-                        <input type="text" name="nm_lengkap" id="nama" class="form-control" placeholder="Nama Lengkap ..." required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="nama" class="col-xs-2 col-form-label text-capitalize">jumlah cuti</label>
-                    <div class="col-xs-10">
-                        <input type="text" name="jmlh_cuti" id="jumlah" class="form-control" placeholder="1 hari.." required>
+                        <select class="custom-select" name="nm_karyawan" id="nama">
+                            <option selected>Karyawan</option>
+                            @foreach ($data as $item)
+                                <option value="{{$item->nama}}">{{$item->nama}}</option> 
+                            @endforeach 
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -32,14 +31,9 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="status" class="col-xs-2 col-form-label text-capitalize">status cuti</label>
+                    <label for="nama" class="col-xs-2 col-form-label text-capitalize">jumlah cuti</label>
                     <div class="col-xs-10">
-                        <select class="custom-select" name="status" id="status">
-                            <option selected>Status</option>
-                            <option value="1">Di Proses</option>
-                            <option value="2">Di Terima</option>
-                            <option value="2">Di Tolak</option>
-                        </select>
+                        <input type="text" name="jmlh_cuti" id="jumlah" class="form-control" placeholder="1 hari.." required>
                     </div>
                 </div>
                 <div class="form-group row">

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Karyawan;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -45,7 +44,6 @@ class KaryawanController extends Controller
 
         $insert = array (
             'nip'   => $request->nip,
-            'nik'   => $request->nik,
             'nama'  => $request->nm_lengkap,
             'jenis_kelamin' => $request->radio,
             'tempat_lahir'  => $request->tmp_lahir,
@@ -54,7 +52,7 @@ class KaryawanController extends Controller
             'email'         => $request->email,
             'status_nikah'  => $request->status,
             'alamat'        => $request->alamat,
-            'golongan_id'   => $request->jabatan
+            //'id'   => $request->jabatan
         );
 
         // dd($insert);
@@ -72,7 +70,9 @@ class KaryawanController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Karyawan::find($id);
+        //dd($data);
+        return view('karyawan.edit',compact('data'));
     }
 
     /**
@@ -85,13 +85,19 @@ class KaryawanController extends Controller
     {
         //
         /* Cari Data Untuk Di Edit */
-        $cari = DB::table('karyawan')->where('id',$id)->get();
-        if(count($cari)){
-            $jabatan = DB::table('golongan')->get();
-            return view('karyawan.edit', ['jabatan' => $jabatan, 'item' => $cari]);
-        }else{
-            return redirect()->route('karyawan.index');
-        }
+        //  $cari = DB::table('karyawan')->where('id',$id)->get();
+        //  if(count($cari)){
+        //       $jabatan = DB::table('golongan')->get();
+        //       return view('karyawan.edit', ['jabatan' => $jabatan, 'item' => $cari]);
+        //   }else{
+        //       return redirect()->route('karyawan.index');}
+
+        //dd($id);
+        $data = Karyawan::where('id',$id)->get();
+        $jabatan = Jabatan::all();
+        // dd($data);
+        //return $data;
+        return view('karyawan.edit',['data' => $data, 'jabatan' => $jabatan]);
     }
 
     /**
@@ -101,9 +107,29 @@ class KaryawanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    
+    
+     public function update(Request $request, $id)
     {
-        //
+        //dd($request->all());
+        $data = Karyawan::where('id',$id)
+              ->update([
+                'nip'   => $request->nip,
+                'nama'  => $request->nm_lengkap,
+                'jenis_kelamin' => $request->radio,
+                'tempat_lahir'  => $request->tmp_lahir,
+                'tanggal_lahir' => $request->tgl_lahir,
+                'telpon'        => $request->tlpn,
+                'email'         => $request->email,
+                'status_nikah'  => $request->status,
+                'alamat'        => $request->alamat,
+            //    'id'   => $request->jabatan
+              ]);
+              //return redirect(karyawan.index)->with('toast_success','Data berhasil diupdate');
+              return redirect()->route('karyawan.index');
+
+        
+    
     }
 
     /**
@@ -115,8 +141,15 @@ class KaryawanController extends Controller
     public function destroy($id)
     {
         //
+        // dd($id);
         $data = Karyawan::find($id);
-        $data->delete();
+        if($data){
+            $message = true;
+            $data->delete();
+            
+        }else{
+            $message = false;
+        }
         return redirect()->route('karyawan.index');
     }
 }

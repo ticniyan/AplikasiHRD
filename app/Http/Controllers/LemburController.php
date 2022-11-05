@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use DB;
+use App\Models\Lembur;
+use App\Models\Karyawan;
 
 class LemburController extends Controller
 {
@@ -15,7 +16,11 @@ class LemburController extends Controller
     public function index()
     {
         $data = DB::table('lembur')->get();
-        return view('Lembur.Lembur', ['data' => $data]);
+        //dd($data);
+        return view('Lembur.lembur', ['data' => $data]);
+        //return $data;
+        
+        
     }
 
     /**
@@ -23,9 +28,21 @@ class LemburController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('Lembur.tambahlmbr');
+    
+    public function tambah(Request $request)
+    { 
+
+        $data = DB::table('karyawan')->get();
+        return view('Lembur.tambahlmbr', ['data'=> $data]);
+
+    }
+    
+    
+     public function create(Request $request)
+    { 
+        $Lembur = Lembur::all();
+        return view('Lembur.buatlembur', ['lembur' => $Lembur]);
+
     }
 
     /**
@@ -34,23 +51,26 @@ class LemburController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storelembur(Request $request)
     {
         //
-         $insert = array (
-            'nama_kry'          => $request->nama_karawan,
-            'tanggal_lembur'    => $request->tgl,
-            'nama'              => $request->nm_lengkap,
-            'mulai_lembur'      => $request->jam_mulai,
-            'selesai_lembur'    => $request->jam_selesai,
-            'jumlah'            => $request->terhitung,
-        );
+        $insert = array (
+            'id'               => $request->id,
+            'nama_kry'             => $request->nm_karyawan,
+            'tanggal_lembur'   => $request->tgl,
+            'mulai_lembur'     => $request->jam_mulai,
+            'selesai_lembur'   => $request->jam_selesai,
+            'jumlah'           => $request->terhitung,
+         );
 
         // dd($insert);
 
-        DB::table('lembur')->insert($insert);
+         DB::table('lembur')->insert($insert);
 
-        return redirect()->route('lembur.index');
+         return redirect()->route('lembur.index');
+
+        // Lembur::create($request->all());
+        // return redirect()->route('lembur');
     }
 
     /**
@@ -95,9 +115,14 @@ class LemburController extends Controller
      */
     public function destroy($id)
     {
-        //
         $data = Lembur::find($id);
-        $data->delete();
+        if($data){
+            $message = true;
+            $data->delete();
+            
+        }else{
+            $message = false;
+        }
         return redirect()->route('lembur.index');
     }
 }

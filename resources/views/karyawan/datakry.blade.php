@@ -12,21 +12,20 @@
         <div class="box box-block bg-white">
             <h5 class="m-b-1">Data Karyawan</h5>
             <hr>
-            <div class="overflow-x-auto">
             <div class="table-responsive">
                 <table class="table table-striped table-bordered dataTable" id="table-1">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>NIP</th>
-                            <th>Nama</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Tgl.Lahir</th>
-                            <th>Alamat</th>
-                            <th>No.Tlpn</th>
-                            <th>Email</th>
-                            <th>Jabatan</th>
-                            <th>Aksi</th>
+                            <th width="50px">#</th>
+                            <th width="50px">NIP</th>
+                            <th width="100px">Nama</th>
+                            <th width="50px">Jenis Kelamin</th>
+                            <th width="90px">Tgl.Lahir</th>
+                            <th width="150px">Alamat</th>
+                            <th width="100px">No.Tlpn</th>
+                            <th width="100px">Email</th>
+                            <th width="50px">Jabatan</th>
+                            <th width="50px">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,12 +41,12 @@
                                 <td class="text-capitalize">{{$item->alamat}}</td>
                                 <td>{{$item->telpon}}</td>
                                 <td>{{$item->email}}</td>
-                                <td>{{$item->golongan_id}}</td>
+                                <td>{{$item->id}}</td>
                                 <td>
-                                    <a href="{{route('karyawan.edit',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{url('editkry',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-pencil"></i>
                                     </a>
-                                    <a href="{{url('delete',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{url('deletekaryawan',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-trash"></i>
                                     </a>
                                 </td>
@@ -86,7 +85,6 @@
                         --}}
                     </tbody>
                 </table>
-            </div>
             </div>
         </div>
     </div>

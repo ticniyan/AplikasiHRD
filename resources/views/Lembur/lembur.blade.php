@@ -17,29 +17,32 @@
                 <table class="table table-striped table-bordered dataTable" id="table-1">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Nama</th>
-                            <th>Tanggal</th>
-                            <th>Jam Mulai</th>
-                            <th>Jam Selesai</th>
-                            <th>Terhitung</th>
-                            <th>Aksi</th>
+                            <th width="50px">#</th>
+                            <th width="200px">Nama</th>
+                            <th width="100px">Tanggal</th>
+                            <th width="100px">Jam Mulai</th>
+                            <th width="100px">Jam Selesai</th>
+                            <th width="100px">Terhitung</th>
+                            <th width="50px">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                       {{-- @foreach ($data as $item)
+                        @foreach ($data as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td class="text-capitalize">{{$item->nama_golongan}}</td>
-                                <td class="text-capitalize">{{$item->keterangan}}</td>
+                                <td class="text-capitalize">{{$item->nama_kry}}</td>
+                                <td class="text-capitalize">{{$item->tanggal_lembur}}</td>
+                                <td class="text-capitalize">{{$item->mulai_lembur}}</td>
+                                <td class="text-capitalize">{{$item->selesai_lembur}}</td>
+                                <td class="text-capitalize">{{$item->jumlah}}</td>
                                 <td>
-                                    <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{url('delete',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-trash"></i>
                                     </a>
                                 </td>
                             </tr>
-                        @endforeach --}}
-                         <tr>
+                        @endforeach 
+                        {{-- <tr>
                             <td>1</td>
                             <td class="text-capitalize">Niya</td>
                             <td class="text-capitalize">01-10-2022</td>
@@ -47,11 +50,11 @@
                             <td class="text-capitalize">19:00</td>
                             <td class="text-capitalize">60 Menit</td>
                             <td>
-                                <a href="{{url('delete')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
                                     <i class="ti-trash"></i>
                                 </a>
                             </td> 
-                        </tr> 
+                        </tr> --}}
                     </tbody>
                 </table>
             </div>

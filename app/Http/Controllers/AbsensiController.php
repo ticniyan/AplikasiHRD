@@ -1,84 +1,84 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Models\Absensi;
+use DB;
 
 class AbsensiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('Absensi.absensi');
+        $data = DB::table('Absensi')->get();
+        return view('Absensi.Absensi', ['data' => $data]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('Absensi.tambahabs');
+        $absensi = Absensi::all();
+        return view('Absensi.tambahabs', ['Absensi' => $absensi]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function absensistore(Request $request)
     {
-        //
+        $insert = array (
+           // 'id'             => $request->id,
+           'nama'          => $request->nm_karyawan,
+           'tgl_absen'     => $request->tgl,
+           'jam_masuk'     => $request->jam_masuk,
+           'jam_pulang'    => $request->jam_plg,
+           'terlambat'     => $request->terlambat,
+          'jam_kerja'     => $request->jam_kerja
+        );
+
+        //dd($insert);
+
+        DB::table('Absensi')->insert($insert);
+        return redirect()->route('absensi.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        $data = Absensi::find($id);
+        //dd($data);
+        return view('Absensi.edit',compact('data'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+         /* Cari Data Untuk Di Edit */
+         $data = Absensi::find($id);
+       
+         //return view('absensi.edit');
+         return $data;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $update = [
+            'nama'          => $request->nm_karyawan,
+            'tgl_absen'     => $request->tgl,
+            'jam_masuk'     => $request->jam_masuk,
+            'jam_pulang'    => $request->jam_plg,
+            'terlambat'     => $request->terlambat,
+           'jam_kerja'     => $request->jam_kerja
+        ];
+        User::where('id', $id)->update($update);
+        $msg = "User Updated successful! ";
+        return redirect('Absensi.index')->with('msg', $msg); 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        // dd($id);
+        $data = Absensi::find($id);
+        if($data){
+            $message = true;
+            $data->delete();
+            
+        }else{
+            $message = false;
+        }
+        return redirect()->route('absensi.index');
     }
 }

@@ -17,7 +17,7 @@
                 <table class="table table-striped table-bordered dataTable" id="table-1">
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>ID</th>
                             <th>Jabatan</th>
                             <th>Keterangan</th>
                             <th>Aksi</th>
@@ -30,7 +30,7 @@
                                 <td class="text-capitalize">{{$item->nama_golongan}}</td>
                                 <td class="text-capitalize">{{$item->keterangan}}</td>
                                 <td>
-                                    <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{url('/deletejabatan',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-trash"></i>
                                     </a>
                                 </td>

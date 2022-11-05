@@ -5,8 +5,8 @@
         <div class="box box-block bg-white">
             <h5 class="text-capitalize">Edit data karyawan</h5>
             <hr>
-            @foreach ($item as $it)
-                <form action="{{route('karyawan.store')}}" method="POST" enctype="multipart/form-data">
+            @foreach ($data as $it)
+                <form action="{{url('updatekry',$it->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <label for="nip" class="col-xs-2 col-form-label text-capitalize">NIP</label>
@@ -14,12 +14,12 @@
                             <input type="number" name="nip" id="nip" class="form-control" value="{{$it->nip}}" readonly>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    {{-- <div class="form-group row">
                         <label for="nik" class="col-xs-2 col-form-label text-capitalize">NIK</label>
                         <div class="col-xs-10">
                             <input type="number" name="nik" id="nik" class="form-control" value="{{$it->nik}}" placeholder="NIK ..." readonly />
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="form-group row">
                         <label for="nama" class="col-xs-2 col-form-label text-capitalize">nama lengkap</label>
                         <div class="col-xs-10">
@@ -116,7 +116,7 @@
                             </div>
                         </div>
                     </div> --}}
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                 </form>
             @endforeach
 

@@ -5,11 +5,17 @@
         <div class="box box-block bg-white">
             <h5 class="text-capitalize">form lembur</h5>
             <hr>
-            <form action="">
+            <form action="{{route('storelembur')}}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="form-group row">
                     <label for="nama" class="col-xs-2 col-form-label text-capitalize">nama karyawan</label>
                     <div class="col-xs-10">
-                        <input type="text" name="nm_karawan" id="nama" class="form-control" placeholder="Nama ..." required>
+                        <select class="custom-select" name="nm_karyawan" id="nama">
+                            <option selected>Karyawan</option>
+                            @foreach ($data as $item)
+                                <option value="{{$item->nama}}">{{$item->nama}}</option> 
+                            @endforeach 
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -36,17 +42,17 @@
                         <input type="text" name="terhitung" id="terhitung" class="form-control" required>
                     </div>
                 </div>
-               {{-- <div class="form-group row">
-                    <label for="jabatan" class="col-xs-2 col-form-label text-capitalize">jabatan</label>
+                {{-- <div class="form-group row">
+                    <label for="lembur" class="col-xs-2 col-form-label text-capitalize">nama</label>
                     <div class="col-xs-10">
-                        <select class="custom-select" name="jabatan" id="jabatan">
-                            <option selected>Jabatan</option>
-                            @foreach ($jabatan as $item)
-                                <option value="{{$item->id}}">{{$item->nama_golongan}}</option> 
-                            @endforeach
+                        <select class="custom-select" name="nama" id="nama">
+                            <option selected>Lembur</option>
+                            {{-- @foreach ($lembur as $item)
+                                <option value="{{$item->id}}">{{$item->nama_kry}}</option> 
+                            @endforeach 
                         </select>
                     </div>
-                </div>--}}
+                </div> --}}
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </form>
         </div>

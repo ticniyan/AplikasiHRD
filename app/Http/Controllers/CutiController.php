@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cuti;
 use Illuminate\Http\Request;
+use App\Models\Karyawan;
+use DB;
 
 class CutiController extends Controller
 {
@@ -14,6 +17,18 @@ class CutiController extends Controller
     public function index()
     {
         //
+        $data = cuti::all();
+
+        return view('Cuti.cuti',['data' => $data]);
+    }
+
+
+    public function tambah(Request $request)
+    { 
+
+        $data = DB::table('karyawan')->get();
+        return view('Cuti.tambahcuti', ['data'=> $data]);
+
     }
 
     /**
@@ -24,6 +39,8 @@ class CutiController extends Controller
     public function create()
     {
         //
+        $data = cuti::all();
+        return view('Cuti.tambahcuti', ['data' => $data]);
     }
 
     /**
@@ -35,6 +52,21 @@ class CutiController extends Controller
     public function store(Request $request)
     {
         //
+        $insert = array (
+           // 'id'            => $request->id,
+            'nama'          => $request->nm_karyawan,
+            'tanggal_mulai' => $request->tgl_mulai,
+            'tgl_selesai'   => $request->tgl_selesai,
+            'jumlah'        => $request->jmlh_cuti,
+            'status'        => '1',
+            'keterangan'    => $request->ket,
+        );
+
+        // dd($insert);
+
+        DB::table('cuti')->insert($insert);
+
+        return redirect()->route('cuti');
     }
 
     /**
@@ -79,6 +111,14 @@ class CutiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Cuti::find($id);
+        if($data){
+            $message = true;
+            $data->delete();
+            
+        }else{
+            $message = false;
+        }
+        return redirect()->route('cuti.index');
     }
-}
+    }
