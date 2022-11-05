@@ -14,13 +14,13 @@
             <a href="{{url('/tambahjabatan')}}" class="btn btn-primary">Tambah +</a>
             <hr>
             <div class="table-responsive">
-                <table class="table table-striped table-bordered dataTable" id="table-1" >
+                <table class="table table-striped table-bordered dataTable" id="table-1">
                     <thead>
                         <tr>
-                            <th width="50px">#</th>
-                            <th width="200px">Jabatan</th>
-                            <th width="500px">Keterangan</th>
-                            <th width="100px">Aksi</th>
+                            <th>ID</th>
+                            <th>Jabatan</th>
+                            <th>Keterangan</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,7 +30,7 @@
                                 <td class="text-capitalize">{{$item->nama_golongan}}</td>
                                 <td class="text-capitalize">{{$item->keterangan}}</td>
                                 <td>
-                                    <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{url('/deletejabatan',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-trash"></i>
                                     </a>
                                 </td>
