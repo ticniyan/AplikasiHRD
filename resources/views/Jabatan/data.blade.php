@@ -17,10 +17,10 @@
                 <table class="table table-striped table-bordered dataTable" id="table-1">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Jabatan</th>
-                            <th>Keterangan</th>
-                            <th>Aksi</th>
+                            <th width="10px">ID</th>
+                            <th width="100px">Jabatan</th>
+                            <th width="200px">Keterangan</th>
+                            <th width="10px">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
