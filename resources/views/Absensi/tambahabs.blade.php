@@ -5,7 +5,8 @@
         <div class="box box-block bg-white">
             <h5 class="text-capitalize">form absensi</h5>
             <hr>
-            <form action="">
+            <form action="{{route('absensistore')}}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="form-group row">
                     <label for="nama" class="col-xs-2 col-form-label text-capitalize">nama karyawan</label>
                     <div class="col-xs-10">
