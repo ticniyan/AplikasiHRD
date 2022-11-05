@@ -17,29 +17,28 @@
                 <table class="table table-striped table-bordered dataTable" id="table-1">
                     <thead>
                         <tr>
-                            <th width="50px">#</th>
-                            <th width="50px">ID Karyawan</th>
-                            <th width="200px">Nama</th>
-                            <th width="100px">Tanggal</th>
-                            <th width="100px">Jam Masuk</th>
-                            <th width="100px">Jam Pulang</th>
-                            <th width="100px">Jam Kerja</th>
-                            <th width="100px">Terlambat</th>
-                            <th width="50px">Aksi</th>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Tanggal</th>
+                            <th>Jam Masuk</th>
+                            <th>Jam Pulang</th>
+                            <th>Jam Kerja</th>
+                            <th>Terlambat</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                        @foreach ($data as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td class="text-capitalize">{{$item->karyawan_id}}</td>
                                 <td class="text-capitalize">{{$item->nama}}</td>
                                 <td class="text-capitalize">{{$item->tgl_absen}}</td>
                                 <td class="text-capitalize">{{$item->jam_masuk}}</td>
                                 <td class="text-capitalize">{{$item->jam_pulang}}</td>
+                                <td class="text-capitalize">{{$item->jam_kerja}}</td>
                                 <td class="text-capitalize">{{$item->terlambat}}</td>
                                 <td>
-                                    <a href="{{url('/delete')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{url('/deleteabsen',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-trash"></i>
                                     </a>
                                 </td>
