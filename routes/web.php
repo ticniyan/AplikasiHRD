@@ -50,7 +50,7 @@ Route::get('/update/{id}', [AbsensiController::class,'update'])->name('update');
 Route::get('/edit/{id}', [AbsensiController::class,'edit'])->name('edit');
 Route::post('/absensistore', [AbsensiController::class,'absensistore'])->name('absensistore');
 
-//Route::resource('lembur', LemburController::class);
+Route::resource('lembur', LemburController::class);
 Route::get('lembur.index', [LemburController::class,'index'])->name('lembur.index');
 Route::get('/tambahlmbr', [LemburController::class,'tambah'])->name('tambahlmbr');
 Route::post('/buatlembur', [LemburController::class,'create'])->name('buatlembur');
