@@ -52,7 +52,7 @@ class KaryawanController extends Controller
             'email'         => $request->email,
             'status_nikah'  => $request->status,
             'alamat'        => $request->alamat,
-            //'id'   => $request->jabatan
+            'jabatan'       => $request->jabatan
         );
 
         // dd($insert);
@@ -123,7 +123,7 @@ class KaryawanController extends Controller
                 'email'         => $request->email,
                 'status_nikah'  => $request->status,
                 'alamat'        => $request->alamat,
-            //    'id'   => $request->jabatan
+                'jabatan'       => $request->jabatan
               ]);
               //return redirect(karyawan.index)->with('toast_success','Data berhasil diupdate');
               return redirect()->route('karyawan.index');
