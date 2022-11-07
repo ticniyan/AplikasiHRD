@@ -14,6 +14,7 @@
                 </a>
             </li>
             <li class="menu-title m-t-0-5">Master Data</li>
+               @if (auth()->user()->level=="admin")
             <li>
                 <a href="{{url('/jabatan')}}" class="waves-effect waves-light">
                     <span class="s-icon"><i class="ti-layers"></i></span>
@@ -31,6 +32,7 @@
                     <li><a href="{{route('karyawan.index')}}">Data</a></li>
                 </ul>
             </li>
+                @endif
             <li>
                 <a href="{{url('/absensi')}}" class="waves-effect waves-light">
                     <span class="s-icon"><i class="ti-calendar"></i></span>
