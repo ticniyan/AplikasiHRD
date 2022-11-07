@@ -10,53 +10,44 @@
 @section('content')
     <div class="container-fluid">
         <div class="box box-block bg-white">
-            <h5>Cuti Karyawan</h5>
-            <a href="{{url('/tambahcuti')}}" class="btn btn-primary">Pengajuan Cuti +</a>
+            <h5>Data User</h5>
             <hr>
             <div class="table-responsive">
                 <table class="table table-striped table-bordered dataTable" id="table-1">
                     <thead>
                         <tr>
-                            <th width="50px">#</th>
-                            <th width="200px">Nama</th>
-                            <th width="100px">Tanggal Mulai</th>
-                            <th width="100px">Tanggal Selesai</th>
-                            <th width="50px">Jumlah Permohonan</th>
-                            <th width="100px">Status</th>
-                            <th width="50px">Keterangan</th>
-                            <th width="50px">aksi</th>
+                            <th width="10px">#</th>
+                            <th width="100px">Nama</th>
+                            <th width="200px">Email</th>
+                            <th width="200px">Password</th>
+                            <th width="10px">Level</th>
+                            <th width="10px">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $item)
                             <tr>
                                 <td>{{$item->id}}</td>
-                                <td class="text-capitalize">{{$item->nama_karyawan}}</td>
-                                <td class="text-capitalize">{{$item->tanggal_mulai}}</td>
-                                <td class="text-capitalize">{{$item->tgl_selesai}}</td>
-                                <td class="text-capitalize">{{$item->jumlah}}</td>
-                                <td class="text-capitalize">{{$item->status}}</td>
-                                <td class="text-capitalize">{{$item->keterangan}}</td>
+                                <td class="text-capitalize">{{$item->name}}</td>
+                                <td class="text-capitalize">{{$item->email}}</td>
+                                <td class="text-capitalize">{{$item->password}}</td>
+                                <td class="text-capitalize">{{$item->level}}</td>
                                 <td>
-                                    <a href="{{url('deletecuti',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <a href="{{url('/deletepw',$item->id)}}" class="btn btn-success btn-circle waves-effect waves-light">
                                         <i class="ti-trash"></i>
                                     </a>
                                 </td>
                             </tr>
-                        @endforeach 
-                         {{--<tr>
+                        @endforeach
+                        {{-- <tr>
                             <td>1</td>
-                            <td>1</td>
-                            <td class="text-capitalize">Agus</td>
-                            <td class="text-capitalize">5 Hari</td>
-                            <td class="text-capitalize">01-10-2022</td>
-                            <td class="text-capitalize">05-10-2022</td>
-                            <td class="text-capitalize">Di Proses</td>
+                            <td class="text-capitalize">admin</td>
+                            <td class="text-capitalize">jabatan untuk admin keuangan</td>
                             <td>
-                                <a href="{{url('delete')}}" class="btn btn-success btn-circle waves-effect waves-light">
-                                    <i class="ti-trash"></i>
+                                <a href="{{url('/')}}" class="btn btn-success btn-circle waves-effect waves-light">
+                                    <i class="ti-pencil"></i>
                                 </a>
-                            </td> 
+                            </td>
                         </tr> --}}
                     </tbody>
                 </table>
