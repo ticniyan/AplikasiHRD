@@ -15,14 +15,16 @@ class AbsensiController extends Controller
 
     public function create()
     {
-        $absensi = Absensi::all();
-        return view('Absensi.tambahabs', ['Absensi' => $absensi]);
+        //$absensi = Absensi::all();
+        $data = DB::table('karyawan')->get();
+        return view('Absensi.tambahabs', ['data'=> $data]);
+        //return view('Absensi.tambahabs', ['Absensi' => $absensi]);
     }
 
     public function absensistore(Request $request)
     {
         $insert = array (
-           // 'id'             => $request->id,
+           'id'             => $request->id,
            'nama'          => $request->nm_karyawan,
            'tgl_absen'     => $request->tgl,
            'jam_masuk'     => $request->jam_masuk,
