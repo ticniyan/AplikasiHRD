@@ -6,6 +6,8 @@ use App\Http\Controllers\Karyawan\KaryawanController;
 use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\LemburController;
 use App\Http\Controllers\CutiController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
