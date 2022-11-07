@@ -23,7 +23,7 @@
                     </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#"><i class="ti-help m-r-0-5"></i> Help</a>
-                    <a class="dropdown-item" href="#"><i class="ti-power-off m-r-0-5"></i> Sign out</a>
+                    <a class="dropdown-item" href="href="{{ route('logout') }}"><i class="ti-power-off m-r-0-5"></i> Sign out</a>
                 </div>
             </li>
         </ul>
