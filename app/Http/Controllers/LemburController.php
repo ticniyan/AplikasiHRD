@@ -17,7 +17,11 @@ class LemburController extends Controller
     {
         $data = DB::table('lembur')->get();
         //dd($data);
+<<<<<<< HEAD
         return view('Lembur.lembur', ['data' => $data]);
+=======
+        return view('lembur.lembur', ['data' => $data]);
+>>>>>>> 700f97ff9d6eccad7dfad6a60c5972229c0ab33d
         //return $data;
         
         
