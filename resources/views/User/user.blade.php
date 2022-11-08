@@ -18,9 +18,9 @@
                         <tr>
                             <th width="10px">#</th>
                             <th width="100px">Nama</th>
-                            <th width="200px">Email</th>
-                            <th width="200px">Password</th>
-                            <th width="10px">Level</th>
+                            <th width="1500px">Email</th>
+                            <th width="100px">Password</th>
+                            <th width="70px">Level</th>
                             <th width="10px">Aksi</th>
                         </tr>
                     </thead>
