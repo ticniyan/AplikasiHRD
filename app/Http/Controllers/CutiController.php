@@ -53,13 +53,8 @@ class CutiController extends Controller
     {
         //
         $insert = array (
-<<<<<<< HEAD
             'id'            => $request->id,
             'nama_karyawan'          => $request->nm_karyawan,
-=======
-           // 'id'            => $request->id,
-            'nama'          => $request->nm_karyawan,
->>>>>>> 700f97ff9d6eccad7dfad6a60c5972229c0ab33d
             'tanggal_mulai' => $request->tgl_mulai,
             'tgl_selesai'   => $request->tgl_selesai,
             'jumlah'        => $request->jmlh_cuti,
