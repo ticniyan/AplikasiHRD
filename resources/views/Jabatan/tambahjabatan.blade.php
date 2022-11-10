@@ -11,11 +11,7 @@
                     <label for="nama" class="col-xs-2 col-form-label text-capitalize">nama jabatan</label>
                     <div class="col-xs-10">
                         <input type="text" name="nama_jabatan" id="nama" class="form-control" placeholder="Nama Jabatan ..." required>
-<<<<<<< HEAD
-                    </div>      
-=======
                     </div>
->>>>>>> 700f97ff9d6eccad7dfad6a60c5972229c0ab33d
                 </div>
                 <div class="form-group row">
                     <label for="keterangan" class="col-xs-2 col-form-label text-capitalize">keterangan</label>
